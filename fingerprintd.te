@@ -1,0 +1,25 @@
+
+
+# formuex
+allow fingerprintd fingerprintd_data_file:dir create;
+type fingerprint_device, dev_type;
+
+# write /sys/bus/spi/devices/spi12.0/spi_prepare
+#allow fingerprintd sysfs_fingerprintd:file rw_file_perms;
+allow fingerprintd sysfs:file rw_file_perms;
+
+#/dev/fsc_spi fingerprint_device
+allow fingerprintd fingerprint_device:chr_file rw_file_perms;
+
+#/data/fsc fingerprintd_data_file
+allow fingerprintd fingerprintd_data_file:sock_file create_file_perms;
+
+#/data/fsc fingerprintd_data_file
+#allow system_app   fingerprintd_data_file:sock_file {read write search};
+allow system_app   fingerprintd_data_file:sock_file rw_file_perms;
+#allow system_app system_data_file:sock_file rw_file_perms;
+allow system_app   fingerprintd_data_file:dir { search } ;
+allow system_app   fingerprintd:unix_stream_socket { connectto read write };
+
+
+allow system_app   fingerprint_service:service_manager { add };

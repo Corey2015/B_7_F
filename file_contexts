@@ -1,0 +1,4 @@
+##############add by corey
+/data/fsc              u:object_r:fingerprintd_data_file:s0
+/dev/fsc_spi           u:object_r:fingerprint_device:s0
+

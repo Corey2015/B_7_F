@@ -1,0 +1,4 @@
+
+config FINGERPRINT_ET310
+        bool "FINGERPRINT_ET310"
+        default n
